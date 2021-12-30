@@ -9,12 +9,11 @@
             "email": "niels.de.blaauw@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
-        "nikic/php-parser": "^4.2",
-        "wp-cli/php-cli-tools": "^0.11.11",
-        "ulrichsg/getopt-php": "^3.2",
-        "phpdocumentor/reflection-docblock": "^4.3"
+        "nikic/php-parser": "^4",
+        "wp-cli/php-cli-tools": "^0.11",
+        "ulrichsg/getopt-php": "^3|^4",
+        "phpdocumentor/reflection-docblock": "^4.3|^5"
     },
     "bin": [
         "bin/php-doc-check"
@@ -34,11 +33,50 @@
             "NdB\\PhpDocCheck\\": "src"
         }
     },
+    "replace": {
+        "ext-tokenizer": "*",
+        "ext-xmlwriter": "*",
+        "ext-simplexml": "*",
+        "ext-dom": "*",
+        "ext-xml": "*"
+    },
+    "minimum-stability": "dev",
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.4",
-        "humbug/box": "^3.4",
-        "phpmd/phpmd": "^2.6",
-        "phpstan/phpstan": "^0.11.1",
-        "phpunit/phpunit": "^7.5"
-    }
+        "squizlabs/php_codesniffer": "^3",
+        "humbug/box": "^3",
+        "phpmd/phpmd": "^2",
+        "phpstan/phpstan": "^1",
+        "phpunit/phpunit": "^9.5"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "paragonie/pharaoh",
+                "version": "0.6.0",
+                "source": {
+                    "url": "https://github.com/someonewithpc/pharaoh.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ulrichsg/getopt-php",
+                "version": "4.0.0",
+                "autoload": {
+                    "psr-4": {
+                        "GetOpt\\": "src"
+                    }
+                },
+                "source": {
+                    "url": "https://github.com/someonewithpc/getopt-php.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ]
 }
